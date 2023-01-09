@@ -23,7 +23,6 @@ pipeline {
                 sh 'mvn verify -DskipUnitTests'
             }
         }
-
         stage('Maven Build'){
             steps{
                 sh 'mvn clean install'
@@ -34,7 +33,7 @@ pipeline {
                 withSonarQubeEnv(credentialsId: 'SonarQube-ApiKey') {
                     sh 'mvn clean package sonar:sonar'
                  
-            }
-        }
+                }
+        }   }
     }
 }
